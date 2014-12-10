@@ -7,6 +7,15 @@ doc_meta = json.load(open('../data/metadata.json'))
 # files = ['../kbdata/gene_mentions.csv', '../kbdata/phenotype_mentions.csv', '../kbdata/gene_phenotype_relation.csv']
 files = ['./gene_mentions-precision/input_.csv', './phenotype_mentions-precision/input_.csv', './gene_phenotype_relation-precision/input_.csv']
 
+'''
+CONVENTION:
+Save files to *.labeling.csv. e.g. for 
+  ./gene_mentions-precision/input_.csv,
+save output for each document to 
+  ../data/PATH/TO/DOC/gene_mentions-precision.labeling.csv
+'''
+
+
 def DocumentExist(doc_id):
   return doc_id in doc_meta
 
@@ -116,7 +125,7 @@ for f in files:
   print 'Dumping %d CSV files...' % len(data)
   for doc_id in data:
     outputdir = getOutputDir('../data', doc_id)
-    savepath = outputdir + kbname + '.json'
+    savepath = outputdir + kbname + '.labeling.csv'
     # print savepath
     # print json.dumps(data[doc_id], indent=2)
     fout = open(savepath, 'w')

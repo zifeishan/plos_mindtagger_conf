@@ -4,8 +4,10 @@ import csv, json, re
 # Rely on the meta file for now
 doc_meta = json.load(open('../data/metadata.json'))
 
-# files = ['../kbdata/gene_mentions.csv', '../kbdata/phenotype_mentions.csv', '../kbdata/gene_phenotype_relation.csv']
-files = ['./gene_mentions-precision/input_.csv', './phenotype_mentions-precision/input_.csv', './gene_phenotype_relation-precision/input_.csv']
+# input CSV files 
+# CONVENTION: must be SOMEPATH/MENTION_TYPE-precision.csv
+files = ['../kbdata/labeling/gene_mentions-precision.csv', '../kbdata/labeling/phenotype_mentions-precision.csv', '../kbdata/labeling/gene_phenotype_relation-precision.csv']
+# files = ['./gene_mentions-precision/input_.csv', './phenotype_mentions-precision/input_.csv', './gene_phenotype_relation-precision/input_.csv']
 
 '''
 CONVENTION:
@@ -58,8 +60,7 @@ def getOutputDir(base_dir, doc_id):
 for f in files:
   # Save data for this csv file
   data = {}
-  # kbname = f.split('/')[-1].split('.')[0]
-  kbname = f.split('/')[1]
+  kbname = f.split('/')[-1].split('.')[0]
   print 'Processing', kbname
   fin = open(f)
 

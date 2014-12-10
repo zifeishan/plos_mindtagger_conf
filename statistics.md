@@ -1,0 +1,9 @@
+Statistics of tagging tasks: (the number is number of tasks, i.e. number of papers with mentions)
+
+Processing gene_mentions-precision
+Dumping 80459 CSV files...
+Processing phenotype_mentions-precision
+Dumping 77067 CSV files...
+Processing gene_phenotype_relation-precision
+Dumping 17655 CSV files...
+

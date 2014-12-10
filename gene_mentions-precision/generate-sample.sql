@@ -5,6 +5,7 @@ COPY (
          , m.expectation
          , s.words as s_words
          , m.words as m_words
+	 --, m.wordidxs as mention_pos
          , m.wordidxs[1] as m_start
          , (select max(x) from unnest(m.wordidxs) x) as m_end
       FROM gene_mentions_is_correct_inference m

@@ -1,11 +1,12 @@
 <mindtagger mode="precision">
 
   <template for="each-item">
-  <strong>{{item.m1_words}} - {{item.m2_words}}</strong> with expectation <strong>{{item.expectation | number:3}}</strong> appeared in:
+  <strong>[{{item.m1_words | concatArray: 'postgres'}}] - [{{item.m2_words | concatArray: 'postgres'}}]</strong> 
+    with expectation <strong>{{item.expectation | number:3}}</strong> appeared in:
     <blockquote>
         <big mindtagger-word-array="item.s1_words" array-format="postgres">
-            <mindtagger-highlight-words from="item.m1_start" to="item.m1_end" with-style="background-color: yellow;"/>
-            <mindtagger-highlight-words from="item.m2_start" to="item.m2_end" with-style="background-color: cyan;"/>
+            <mindtagger-highlight-words from="item.m1_start" to="item.m1_end" with-style="background-color: yellow; text-decoration: underline;"/>
+            <mindtagger-highlight-words from="item.m2_start" to="item.m2_end" with-style="background-color: cyan; text-decoration: underline;"/>
         </big>
     </blockquote>
     <p><a href="http://madmax.stanford.edu:9105/#/view/mention/{{item.relation_id}}">Browse annotated PDF</a></p>
